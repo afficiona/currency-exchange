@@ -244,7 +244,9 @@ body {
     @media only screen and (max-width: 640px) {
       .app .shell {
         height: 100%;
-        box-shadow: none; } }
+        box-shadow: none;
+        flex: 1;
+        max-height: none; } }
     .app .shell__content {
       display: flex;
       flex-direction: column;

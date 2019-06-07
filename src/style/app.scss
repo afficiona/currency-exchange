@@ -54,6 +54,8 @@ body {
     @media only screen and (max-width: 640px) {
       height: 100%;
       box-shadow: none;
+      flex: 1;
+      max-height: none;
     }
 
     &__content {
