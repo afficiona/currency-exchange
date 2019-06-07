@@ -1,8 +1,8 @@
 {
-  "name": "affxchange",
+  "name": "currency-exchange",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://afficiona21.github.io/affxchange",
+  "homepage": "https://afficiona21.github.io/currency-exchange",
   "dependencies": {
     "classnames": "2.2.5",
     "cross-fetch": "^3.0.1",
@@ -89,7 +89,8 @@
     "prettier": "1.9.2",
     "redux-mock-store": "^1.5.3",
     "sinon": "2.3.0",
-    "standard-version": "4.2.0"
+    "standard-version": "4.2.0",
+    "webpack": "3.11.0"
   },
   "standard-version": {
     "skip": {
