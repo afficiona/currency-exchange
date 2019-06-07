@@ -1,0 +1,30 @@
+.btn {
+  background: $btn-default-bg;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 24px;
+  color: $btn-text-color;
+  font-size: 20px;
+  font-weight: 600;
+
+  &--primary {
+    background: $btn-primary-bg;
+  }
+
+  &--transparent {
+    background: transparent;
+  }
+
+  &--outline {
+    border: 1px solid $btn-text-color;
+    border-radius: 100%;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+}

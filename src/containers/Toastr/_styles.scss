@@ -1,0 +1,26 @@
+.toastr {
+  padding: $base-px-value * 2;
+  color: $text-color;
+  align-self: center;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transition: 0.3s transform;
+  transform: translateY(100%);
+
+  &--active {
+    transform: translateY(0);
+  }
+
+  &--danger {
+    color: #ffffff;
+    background: $brand-danger;
+  }
+
+  &--success {
+    color: #ffffff;
+    background: $brand-success;
+  }
+}
