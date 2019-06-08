@@ -3,47 +3,52 @@
         flex: 1;
         display: flex;
         position: absolute;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.5);
         width: 100%;
         height: 100%;
-        z-index: 100;
-        bottom: -100%;
+        z-index: -1;
+        padding: 16px;
+        box-sizing: border-box;
+        bottom: 0;
+        left: 0;
         &--active {
-            bottom: 0;
+            z-index: 100;
         }
     }
 
     &__section {
         background: $shell-bg;
-        width: 100%;
-        height: 100%;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        position: absolute;
-        left: 0;
-        bottom: 0;
+        opacity: 0;
+        transition: 0.3s opacity;
 
         &--active {
-            bottom: -100%;
-            transition: 0.2s transform;
+            opacity: 0.5;
         }
 
         &--slideIn {
-            transform: translateY(-100%);
+            opacity: 1;
         }
 
         &__list {
             flex: 1;
             &__item {
                 background: #ffffff;
-                padding: 8px;
+                padding: 16px;
                 margin-bottom: 2px;
                 color: #222;
+                display: flex;
+                align-items: center;
+                &__icon {
+                    width: 20px;
+                    margin-right: 16px;
+                }
             }     
         }
 
         &__action {
-            background: $brand-danger;
             height: 40px;
             width: 100%;
             display: flex;

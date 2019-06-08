@@ -60,6 +60,7 @@ class CurrencyMenu extends Component {
                                 key={cur.id}
                                 className="currency-menu__section__list__item"
                             >
+                                <img className="currency-menu__section__list__item__icon" src={cur.icon} alt=""/>
                                 {cur.name}
                             </div>
                         ))}

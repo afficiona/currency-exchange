@@ -57,9 +57,12 @@ class App extends Component {
               <h3 className="shell__content__title">Balances:</h3>
               <div className="shell__content__table">
                 {this.props.CurrencyList.map(cur => (
-                  <div className="row">
-                    <div className="col">{cur.get('name')} </div>
-                    <div className="col">{cur.get('balance')}</div>
+                  <div className="row" key={cur.get('id')}>
+                    <div className="col">
+                      <img className="col__img" src={cur.get('icon')} alt=""/>
+                      {cur.get('name')}
+                  </div>
+                    <div className="col">{cur.get('symbol')}{cur.get('balance')}</div>
                   </div>
                 ))}
               </div>

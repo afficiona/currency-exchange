@@ -19,6 +19,13 @@ export const getExchangeRate = (from, to) => dispatch => {
     });
 };
 
+export const setCurrencyBalance = data => dispatch => {
+  dispatch({
+    type: TYPES.SET_CURRENCY_BALANCE,
+    ...data,
+  });
+}
+
 export const setCurrencySelection = data => dispatch => {
   dispatch({
     type: TYPES.SET_CURRENCY_SELECTION,

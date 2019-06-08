@@ -20,6 +20,8 @@
     &__title {
         font-size: 16px;
         text-align: center;
+        margin: 0 0 16px;
+        font-weight: 700;
     }
 
     &__action__wrapper {
@@ -88,6 +90,11 @@
 
             &:focus, &:active {
                 outline: none;
+            }
+
+            &--invalid {
+                border-color: $brand-danger;
+                color: $brand-danger;
             }
         }
         &__note {

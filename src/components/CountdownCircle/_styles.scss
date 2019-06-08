@@ -7,6 +7,7 @@
     justify-content: center;
     &__number {
         font-size: 12px;
+        color: $brand-secondary;
     }
 
     &__svg {
@@ -20,8 +21,8 @@
             stroke-dasharray: 63px;
             stroke-dashoffset: 0px;
             stroke-linecap: round;
-            stroke-width: 1px;
-            stroke: white;
+            stroke-width: 2px;
+            stroke: $brand-secondary;
             fill: none;
             animation: countdown 10s linear infinite forwards;
         }

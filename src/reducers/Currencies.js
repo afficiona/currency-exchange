@@ -16,6 +16,7 @@ const initialState = fromJS({
     {
       id: 'GBP',
       name: 'GBP',
+      symbol: '£',
       balance: 43.86,
       isSource: true,
       icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
@@ -24,18 +25,21 @@ const initialState = fromJS({
       id: 'EUR',
       name: 'EUR',
       balance: 4.12,
+      symbol: '€',
       isTarget: true,
       icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
     },
     {
       id: 'USD',
       name: 'USD',
+      symbol: '$',
       balance: 12.32,
       icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
     },
     {
       id: 'INR',
       name: 'INR',
+      symbol: '₹',
       balance: 113,
       icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
     }
@@ -43,6 +47,8 @@ const initialState = fromJS({
 });
 
 export default function(state = initialState, action) {
+  let updatedCurrencyList;
+
   switch (action.type) {
     case TYPES.EXCHANGE_RATE_FETCH_INIT:
       return state.mergeIn(['rate'], {
@@ -65,10 +71,20 @@ export default function(state = initialState, action) {
         data: null
       });
 
+    case TYPES.SET_CURRENCY_BALANCE:
+      updatedCurrencyList = state.get('list').map(cur => {
+        if (cur.get('id') === action.id) {
+          return cur.merge({
+            balance: action.balance
+          });
+        }
+        return cur;
+      });
+      return state.mergeIn(['list'], updatedCurrencyList);
+    
     case TYPES.SET_CURRENCY_SELECTION:
       const sourceCurrency = state.get('list').find(cur => cur.get('isSource')).get('id');
       const targetCurrency = state.get('list').find(cur => cur.get('isTarget')).get('id');
-      let updatedCurrencyList;
 
       if (action.toFlip) {
         updatedCurrencyList = state.get('list').map(cur => {

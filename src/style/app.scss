@@ -7,8 +7,6 @@
 @import "./../components/Button/styles";
 @import "./../components/CountdownCircle/styles";
 @import "./../components/CurrencyMenu/styles";
-@import "./../components/Loader/styles";
-@import "./../components/List/styles";
 
 body {
   margin: 0;
@@ -74,13 +72,21 @@ body {
         flex: 1;
         .row {
           display: flex;
-          margin-bottom: 2px;
+          margin-bottom: 4px;
+          box-shadow: 0 11px 10px -10px rgba(0, 0, 0, 0.2);
           .col {
             flex: 1;
-            padding: 6px;
+            padding: 12px;
             background: #ffffff;
+            display: flex;
+            align-items: center;
             &:first-child {
               margin-right: 2px;
+            }
+            
+            &__img {
+              width: 20px;
+              margin-right: 8px;
             }
           }
         }
