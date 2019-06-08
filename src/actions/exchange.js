@@ -19,10 +19,9 @@ export const getExchangeRate = (from, to) => dispatch => {
     });
 };
 
-export const setCurrencySelection = (id, isSource) => dispatch => {
+export const setCurrencySelection = data => dispatch => {
   dispatch({
     type: TYPES.SET_CURRENCY_SELECTION,
-    id,
-    isSource
+    ...data,
   });
 }

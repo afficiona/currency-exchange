@@ -2,5 +2,5 @@
 const _degToRad = deg => deg * Math.PI / 180;
 
 export const formatToDecimal = (num, toPlaces = 2) =>
-  Number(parseFloat(Math.round(num * 100) / 100).toFixed(toPlaces));
+  Math.round(num * `1e${toPlaces}`) / `1e${toPlaces}`
 ;

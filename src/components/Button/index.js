@@ -13,6 +13,7 @@ class Button extends Component {
     });
     return (
       <button className={btnClasses} onClick={this.props.onClick}>
+        {this.props.iconLeft && <img className="btn__img" src={this.props.iconLeft} />}
         {this.props.text}
         {this.props.icon && <i className={`mdi mdi-${this.props.icon}`}></i>}
       </button>

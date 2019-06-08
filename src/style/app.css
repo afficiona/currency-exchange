@@ -1,26 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100,400,700");
-.btn {
-  background: #212121;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 24px;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 600; }
-  .btn--primary {
-    background: #0c3668; }
-  .btn--transparent {
-    background: transparent; }
-  .btn--outline {
-    border: 1px solid #ffffff;
-    border-radius: 100%;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-    font-size: 22px; }
-  .btn:active, .btn:focus {
-    outline: none; }
-
 .header {
   background: #114e96;
   padding: 16px;
@@ -49,7 +27,8 @@
   .header__rate__wrapper {
     display: flex;
     padding: 0 16px;
-    margin: 8px 0; }
+    margin: 4px 0;
+    align-items: center; }
   .header__rate__item {
     flex: 1;
     margin: 0;
@@ -65,6 +44,10 @@
       padding-right: 8px; }
     .header__input__box:last-child {
       padding-left: 8px; }
+  .header__input__action {
+    display: flex;
+    margin-left: 16px;
+    margin-top: 16px; }
   .header__input__label {
     font-size: 12px; }
   .header__input__field {
@@ -75,7 +58,8 @@
     border-bottom: 1px solid #ffffff;
     color: #ffffff;
     font-size: 16px;
-    text-align: right; }
+    text-align: right;
+    margin-bottom: 10px; }
     .header__input__field::-webkit-input-placeholder {
       color: rgba(255, 255, 255, 0.6); }
     .header__input__field:focus, .header__input__field:active {
@@ -85,6 +69,86 @@
     margin-bottom: 0;
     text-align: right;
     font-size: 12px; }
+
+.toastr {
+  padding: 16px;
+  color: #a8a8a8;
+  align-self: center;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transition: 0.3s transform;
+  transform: translateY(100%); }
+  .toastr--active {
+    transform: translateY(0); }
+  .toastr--danger {
+    color: #ffffff;
+    background: #f30053; }
+  .toastr--success {
+    color: #ffffff;
+    background: #00c853; }
+
+.btn {
+  background: #212121;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 24px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto; }
+  .btn__img {
+    margin-right: 8px;
+    width: 20px; }
+  .btn--primary {
+    background: #0c3668; }
+  .btn--transparent {
+    background: transparent; }
+  .btn--outline {
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 22px; }
+  .btn:active, .btn:focus {
+    outline: none; }
+
+.countdown {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .countdown__number {
+    font-size: 12px; }
+  .countdown__svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    transform: rotateY(-180deg) rotateZ(-90deg); }
+    .countdown__svg circle {
+      stroke-dasharray: 63px;
+      stroke-dashoffset: 0px;
+      stroke-linecap: round;
+      stroke-width: 1px;
+      stroke: white;
+      fill: none;
+      animation: countdown 10s linear infinite forwards; }
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px; }
+  to {
+    stroke-dashoffset: 63px; } }
 
 .currency-menu__wrapper {
   flex: 1;
@@ -126,26 +190,6 @@
     display: flex;
     justify-content: center;
     align-items: center; }
-
-.toastr {
-  padding: 16px;
-  color: #a8a8a8;
-  align-self: center;
-  text-align: center;
-  box-sizing: border-box;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  transition: 0.3s transform;
-  transform: translateY(100%); }
-  .toastr--active {
-    transform: translateY(0); }
-  .toastr--danger {
-    color: #ffffff;
-    background: #f30053; }
-  .toastr--success {
-    color: #ffffff;
-    background: #00c853; }
 
 .loader {
   align-self: center;
@@ -248,12 +292,21 @@ body {
         flex: 1;
         max-height: none; } }
     .app .shell__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 16px;
       flex: 1;
-      font-size: 14px; }
-      .app .shell__content .time {
-        color: #114e96;
-        font-size: 40px; }
+      display: flex;
+      flex-direction: column; }
+      .app .shell__content__title {
+        font-size: 14px;
+        margin: 0 0 8px; }
+      .app .shell__content__table {
+        flex: 1; }
+        .app .shell__content__table .row {
+          display: flex;
+          margin-bottom: 2px; }
+          .app .shell__content__table .row .col {
+            flex: 1;
+            padding: 6px;
+            background: #ffffff; }
+            .app .shell__content__table .row .col:first-child {
+              margin-right: 2px; }

@@ -6,6 +6,15 @@
   color: $btn-text-color;
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 auto;
+
+  &__img {
+    margin-right: 8px;
+    width: 20px;
+  }
 
   &--primary {
     background: $btn-primary-bg;

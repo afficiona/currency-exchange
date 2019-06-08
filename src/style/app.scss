@@ -1,11 +1,12 @@
 @import "variables";
 
-@import "./../components/Button/styles";
 @import "./../containers/Header/styles";
 @import "./../containers/styles";
-@import "./../components/CurrencyMenu/styles";
-// @import "./../components/Pocket/styles";
 @import "./../containers/Toastr/styles";
+
+@import "./../components/Button/styles";
+@import "./../components/CountdownCircle/styles";
+@import "./../components/CurrencyMenu/styles";
 @import "./../components/Loader/styles";
 @import "./../components/List/styles";
 
@@ -59,16 +60,30 @@ body {
     }
 
     &__content {
+      padding: $base-px-value * 2;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-      font-size: 14px;
 
-      .time {
-        color: $brand-primary;
-        font-size: 40px;
+      &__title {
+        font-size: 14px;
+        margin: 0 0 8px;
+      }
+
+      &__table {
+        flex: 1;
+        .row {
+          display: flex;
+          margin-bottom: 2px;
+          .col {
+            flex: 1;
+            padding: 6px;
+            background: #ffffff;
+            &:first-child {
+              margin-right: 2px;
+            }
+          }
+        }
       }
     }
   }

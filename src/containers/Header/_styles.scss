@@ -38,7 +38,8 @@
         &__wrapper {
             display: flex;
             padding: 0 16px;
-            margin: 8px 0;
+            margin: 4px 0;
+            align-items: center;
         }
         &__item {
             flex: 1;
@@ -63,6 +64,11 @@
                 padding-left: 8px;
             }
         }
+        &__action {
+            display: flex;
+            margin-left: 16px;
+            margin-top: 16px;
+        }
         &__label {
             font-size: 12px;
         }
@@ -75,6 +81,7 @@
             color: $input-text-color;
             font-size: 16px;
             text-align: right;
+            margin-bottom: 10px;
             &::-webkit-input-placeholder {
                 color: rgba(255, 255, 255, 0.6)
             }

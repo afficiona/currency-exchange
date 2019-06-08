@@ -3,8 +3,12 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { EXCHANGE_RATE_FETCH_TIMER_COUNT } from './../../constants/States';
+
+import CountdownCircle from './../../components/CountdownCircle';
 import Button from './../../components/Button';
 
+import { formatToDecimal } from './../../utils/lib';
 import * as actions from './../../actions/exchange';
 
 /**
@@ -13,11 +17,63 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      sourceBal: '',
+      targetBal: '',
+    }
+
     this.flipCurrencies = () => {
+      this.props.actions.setCurrencySelection( { toFlip: true });
+    }
+
+    this.handleInputChange = (e, data) => {
+      const { value } = e.target;
+      const balances = {
+        sourceBal: this.props.SourceCurrency.get('balance'),
+        targetBal: this.props.TargetCurrency.get('balance')
+      }
+      const field = data.isSource ? 'sourceBal' : 'targetBal';
+      this.setState({
+        sourceBal: formatToDecimal(balances.sourceBal - e.target.value),
+        targetBal: formatToDecimal(balances.targetBal + (value * this.props.CurrencyRate))
+      });
+    }
+
+    this.setBalances = (props = this.props) => {
+      this.setState({
+        sourceBal: props.SourceCurrency.get('balance'),
+        targetBal: props.TargetCurrency.get('balance'),
+      });
+    }
+
+    this.refreshExchangeRate = (sourceId, targetId) => {
+      this.props.actions.getExchangeRate(sourceId, targetId);
+    }
+
+    this.onCountdownReached = () => {
       const sourceId = this.props.SourceCurrency.get('id');
       const targetId = this.props.TargetCurrency.get('id');
-      this.props.actions.setCurrencySelection(sourceId, false);
-      this.props.actions.setCurrencySelection(targetId, true);
+      this.refreshExchangeRate(sourceId, targetId);
+    }
+  }
+
+  componentWillMount() {
+    const currentSourceId = this.props.SourceCurrency.get('id');
+    const currentTargetId = this.props.TargetCurrency.get('id');
+    this.refreshExchangeRate(currentSourceId, currentTargetId);
+    this.setBalances();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Setting the source and target balances in the local state to
+    // be able to show the preview of balances on input change.
+    const currentSourceId = this.props.SourceCurrency.get('id');
+    const currentTargetId = this.props.TargetCurrency.get('id');
+    const nextSourceId = nextProps.SourceCurrency.get('id');
+    const nextTargetId = nextProps.TargetCurrency.get('id');
+    if (currentSourceId !== nextSourceId || currentTargetId !== nextTargetId) {
+      this.refreshExchangeRate(nextSourceId, nextTargetId);
+      this.setBalances(nextProps);
     }
   }
 
@@ -34,6 +90,7 @@ class Header extends Component {
           <Button
             primary
             text={this.props.SourceCurrency.get('name')}
+            iconLeft={this.props.SourceCurrency.get('icon')}
             onClick={() => this.props.currencyMenuToggle(true)}
           />
           <Button
@@ -45,6 +102,7 @@ class Header extends Component {
           <Button
             primary
             text={this.props.TargetCurrency.get('name')}
+            iconLeft={this.props.TargetCurrency.get('icon')}
             onClick={() => this.props.currencyMenuToggle(false)}
           />
 
@@ -52,6 +110,7 @@ class Header extends Component {
 
         <div className="header__rate__wrapper">
           <p className="header__rate__item">1 {this.props.SourceCurrency.get('name')}</p>
+          <CountdownCircle count={EXCHANGE_RATE_FETCH_TIMER_COUNT} countdownCb={this.onCountdownReached} />
           <p className="header__rate__item">
             {this.props.CurrencyRate} {this.props.TargetCurrency.get('name')}
           </p>
@@ -65,18 +124,23 @@ class Header extends Component {
               placeholder="0.00"
               className="header__input__field"
               type="text"
+              onChange={e => this.handleInputChange(e, { isSource: true })}
             />
-            <p className="header__input__note">Balance: {this.props.SourceCurrency.get('balance')}</p>
+            <p className="header__input__note">
+              {this.props.SourceCurrency.get('name')} Balance: &nbsp; {this.state.sourceBal}
+            </p>
+            <p className="header__input__note">
+              Your { this.props.TargetCurrency.get('name') } balance will be: &nbsp; {this.state.targetBal}
+            </p>
           </div>
 
-          <div className="header__input__box">
-            <div className="header__input__label">Target</div>
-            <input
-              placeholder="0.00"
-              className="header__input__field"
-              type="text"
+          <div className="header__input__action">
+            <Button
+              transparent
+              outline
+              icon="swap-horizontal"
+              onClick={this.flipCurrencies}
             />
-            <p className="header__input__note">Balance: {this.props.TargetCurrency.get('balance')}</p>
           </div>
 
         </div>
