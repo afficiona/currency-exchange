@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import Header from './Header';
 import Toastr from './Toastr';
 import CurrencyMenu from './../components/CurrencyMenu';
-import Loader from './../components/Loader';
-import List from './../components/List';
 
 import * as ExchangeActions from './../actions/exchange';
 import * as UIActions from './../actions/ui';
