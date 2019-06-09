@@ -107,7 +107,8 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  box-shadow: 0px 3px 6px rgba(255, 255, 255, 0.1); }
+  box-shadow: 0px 3px 6px rgba(255, 255, 255, 0.1);
+  cursor: pointer; }
   .btn__img {
     margin-right: 8px;
     width: 20px; }
@@ -186,6 +187,7 @@
   .currency-menu__section__list {
     flex: 1; }
     .currency-menu__section__list__item {
+      cursor: pointer;
       background: #ffffff;
       padding: 16px;
       margin-bottom: 2px;
@@ -196,6 +198,7 @@
         width: 20px;
         margin-right: 16px; }
   .currency-menu__section__action {
+    cursor: pointer;
     height: 40px;
     width: 100%;
     display: flex;
@@ -211,7 +214,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #2392ec 0%, #0d5c9c 100%); }
+  background: linear-gradient(135deg, #ffffff, #91abc0); }
   .app:before {
     content: '';
     position: absolute;
