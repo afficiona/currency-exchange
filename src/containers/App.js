@@ -13,9 +13,20 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    /**
+     * Set selected currency from the currency menu to the Currency store.
+     * If isSource, the currency is meant to be selected as source. Else, 
+     * it is meant to be set as Target.
+     * 
+     * If the currency selected for source is already the target currency,
+     * or vice versa, throw an error.
+     * @param { String } id 
+     * @param { Boolean } isSource 
+     */
     this.setCurrencySelection = (id, isSource = true) => {
       this.currencyMenuToggle();
       const field = isSource ? 'TargetCurrency' : 'SourceCurrency';
+      // If currency is already source or target, throw Toastr error
       if (this.props[field].get('id') === id) {
         return this.props.actions.setUIData(['toastr'], {
           isActive: true,
@@ -23,9 +34,13 @@ class App extends Component {
         });
       }
       
-      this.props.actions.setCurrencySelection( { id, isSource });
+      this.props.actions.setCurrencySelection( { id, isSource } );
     }
 
+    /**
+     * Toggle Currency Menu active state
+     * @param { Boolean } isSource 
+     */
     this.currencyMenuToggle = isSource => {
       this.props.actions.setUIData(['currencyMenu'], {
         isSource,
@@ -59,7 +74,7 @@ class App extends Component {
                     <div className="col">
                       <img className="col__img" src={cur.get('icon')} alt=""/>
                       {cur.get('name')}
-                  </div>
+                    </div>
                     <div className="col">{cur.get('symbol')}{cur.get('balance')}</div>
                   </div>
                 ))}

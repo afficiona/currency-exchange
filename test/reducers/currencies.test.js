@@ -13,24 +13,32 @@ const initialState = fromJS ({
     {
       id: 'GBP',
       name: 'GBP',
-      balance: '43.86',
+      symbol: '£',
+      balance: 43.86,
       isSource: true,
+      icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
     },
     {
       id: 'EUR',
       name: 'EUR',
-      balance: '4.12',
+      balance: 4.12,
+      symbol: '€',
       isTarget: true,
+      icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
     },
     {
       id: 'USD',
       name: 'USD',
-      balance: '12.32',
+      symbol: '$',
+      balance: 12.32,
+      icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
     },
     {
       id: 'INR',
       name: 'INR',
-      balance: '113',
+      symbol: '₹',
+      balance: 113,
+      icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
     }
   ],
 });
@@ -51,7 +59,7 @@ describe('Reducer: Customers', () => {
       type: TYPES.EXCHANGE_RATE_FETCH_SUCCESS,
       data: {
         rates: {
-          GBP: "123.1122"
+          GBP: 123.1122
         },
       },
     };
@@ -101,28 +109,36 @@ describe('Reducer: Customers', () => {
         {
           id: 'GBP',
           name: 'GBP',
-          balance: '43.86',
+          balance: 43.86,
           isSource: true,
           isTarget: false,
+          symbol: '£',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
         },
         {
           id: 'EUR',
           name: 'EUR',
-          balance: '4.12',
+          balance: 4.12,
           isTarget: true,
           isSource: false,
+          symbol: '€',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
         },
         {
           id: 'USD',
           name: 'USD',
-          balance: '12.32',
+          balance: 12.32,
           isSource: false,
+          symbol: '$',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
         },
         {
           id: 'INR',
           name: 'INR',
-          balance: '113',
+          balance: 113,
           isSource: false,
+          symbol: '₹',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
         }
       ],
     });
@@ -145,28 +161,36 @@ describe('Reducer: Customers', () => {
         {
           id: 'GBP',
           name: 'GBP',
-          balance: '43.86',
+          balance: 43.86,
           isSource: false,
+          symbol: '£',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
         },
         {
           id: 'EUR',
           name: 'EUR',
-          balance: '4.12',
+          balance: 4.12,
           isTarget: true,
           isSource: false,
+          symbol: '€',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
         },
         {
           id: 'USD',
           name: 'USD',
-          balance: '12.32',
+          balance: 12.32,
           isSource: true,
           isTarget: false,
+          symbol: '$',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
         },
         {
           id: 'INR',
           name: 'INR',
-          balance: '113',
+          balance: 113,
           isSource: false,
+          symbol: '₹',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
         }
       ],
     });
@@ -189,28 +213,36 @@ describe('Reducer: Customers', () => {
         {
           id: 'GBP',
           name: 'GBP',
-          balance: '43.86',
+          balance: 43.86,
           isSource: true,
           isTarget: false,
+          symbol: '£',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
         },
         {
           id: 'EUR',
           name: 'EUR',
-          balance: '4.12',
+          balance: 4.12,
           isTarget: true,
           isSource: false,
+          symbol: '€',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
         },
         {
           id: 'USD',
           name: 'USD',
-          balance: '12.32',
+          balance: 12.32,
           isTarget: false,
+          symbol: '$',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
         },
         {
           id: 'INR',
           name: 'INR',
-          balance: '113',
+          balance: 113,
           isTarget: false,
+          symbol: '₹',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
         }
       ],
     });
@@ -233,28 +265,36 @@ describe('Reducer: Customers', () => {
         {
           id: 'GBP',
           name: 'GBP',
-          balance: '43.86',
+          balance: 43.86,
           isSource: true,
           isTarget: false,
+          symbol: '£',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
         },
         {
           id: 'EUR',
           name: 'EUR',
-          balance: '4.12',
+          balance: 4.12,
           isTarget: false,
+          symbol: '€',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
         },
         {
           id: 'USD',
           name: 'USD',
-          balance: '12.32',
+          balance: 12.32,
           isTarget: true,
           isSource: false,
+          symbol: '$',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
         },
         {
           id: 'INR',
           name: 'INR',
-          balance: '113',
+          balance: 113,
           isTarget: false,
+          symbol: '₹',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
         }
       ],
     });
@@ -278,24 +318,32 @@ describe('Reducer: Customers', () => {
         {
           id: 'GBP',
           name: 'GBP',
-          balance: '43.86',
+          balance: 43.86,
           isSource: true,
+          symbol: '£',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197374.png'
         },
         {
           id: 'EUR',
           name: 'EUR',
-          balance: '4.12',
+          balance: 4.12,
           isTarget: true,
+          symbol: '€',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197615.png'
         },
         {
           id: 'USD',
           name: 'USD',
-          balance: '12.32',
+          balance: 12.32,
+          symbol: '$',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197484.png'
         },
         {
           id: 'INR',
           name: 'INR',
-          balance: '113',
+          balance: 113,
+          symbol: '₹',
+          icon: 'https://image.flaticon.com/icons/png/128/197/197419.png'
         }
       ],
     });

@@ -13,20 +13,31 @@ class Loader extends Component {
       this.state = {
           countdown: props.count - 1
       }
+
+      // Having setState of countdown in a method will help in testing it.
+      this.updateCountdown = countdown => {
+        this.setState({ countdown }, () => {
+          if (!countdown) {
+            // this.props.countdownCb();
+          }
+        });
+      }
   }
 
   componentDidMount() {
       window.clearInterval(this.countdownTimer);
       this.countdownTimer = window.setInterval(() => {
           const countdown = !this.state.countdown ? this.props.count - 1 : this.state.countdown - 1;
-          this.setState({ countdown });
-          if (!countdown) {
-            // this.props.countdownCb();  // FIXME: Revert this          
-          }
+          this.updateCountdown(countdown);
       }, 1000);
   }
 
   render () {
+    // The count has to be present and has to be a number
+    if (isNaN(this.props.count)) {
+      return null;
+    }
+
     return (
       <div className="countdown">
         <div className="countdown__number">{this.state.countdown}</div>

@@ -1,7 +1,7 @@
 import { formatToDecimal } from './../../src/utils/lib';
 import assert from  'assert';
 
-describe('formatDecimal 123.0134523 to 123.01', () => {
+describe('formatDecimal', () => {
   it('converts 123.0134523 to 123.01', () => {
     assert.deepEqual(formatToDecimal(123.0134523), 123.01);
   });

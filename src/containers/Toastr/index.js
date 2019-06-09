@@ -7,7 +7,8 @@ import * as UIActions from './../../actions/ui';
 import { DEFAULT_ERROR_MESSAGE } from './../../constants/States';
 
 /**
- * 
+ * Container component to show message from the bottom of the shell 
+ * screen. It can be configured for error or success message.
  */
 class Toastr extends Component {
   componentWillReceiveProps(nextProps) {

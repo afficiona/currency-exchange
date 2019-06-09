@@ -18,7 +18,7 @@
         height: 30px;
         transform: rotateY(-180deg) rotateZ(-90deg);
         circle {
-            stroke-dasharray: 63px;
+            stroke-dasharray: 62.8px;
             stroke-dashoffset: 0px;
             stroke-linecap: round;
             stroke-width: 2px;
@@ -34,6 +34,6 @@
     stroke-dashoffset: 0px;
   }
   to {
-    stroke-dashoffset: 63px;
+    stroke-dashoffset: 62.8px;
   }
 }

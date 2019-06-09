@@ -1,16 +1,25 @@
-// Convert degree to radians;
-const _degToRad = deg => deg * Math.PI / 180;
-
+/**
+ * Format the number to the decimal places(2 by default)
+ * @param { Number } num 
+ * @param { Number } toPlaces 
+ */
 export const formatToDecimal = (num, toPlaces = 2) =>
   Math.round(num * `1e${toPlaces}`) / `1e${toPlaces}`
 ;
 
 /**
  * Check if the char code is number with decimal places not more than {decimalPlaces}.
+ * NOTE: This may not work for Android mobile since keypress events are not recognized in mobile
+ * browsers.
  * @param {*} e : Input keypress event
  * @param { Number } decimalPlaces : Decimal precision to set to val
  */
 export const checkNumberWithDecimalPlaces = (e, decimalPlaces = 2) => {
+  // Check if e is an event
+  if (!e.target) {
+    throw new Error(`Unexpected argument of type '${typeof e}' found`);
+  }
+
   const keycode = e.which;
   const { value } = e.target;
   const digitsAfterDecimal = value.split('.')[1];

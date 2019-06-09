@@ -143,7 +143,7 @@
     height: 30px;
     transform: rotateY(-180deg) rotateZ(-90deg); }
     .countdown__svg circle {
-      stroke-dasharray: 63px;
+      stroke-dasharray: 62.8px;
       stroke-dashoffset: 0px;
       stroke-linecap: round;
       stroke-width: 2px;
@@ -155,7 +155,7 @@
   from {
     stroke-dashoffset: 0px; }
   to {
-    stroke-dashoffset: 63px; } }
+    stroke-dashoffset: 62.8px; } }
 
 .currency-menu__wrapper {
   flex: 1;

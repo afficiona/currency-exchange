@@ -3,6 +3,10 @@ import { fromJS } from 'immutable';
 import { normalizeCustomersList } from './../utils/normalizer';
 import * as TYPES from './../constants/ActionTypes';
 
+/**
+ * Store to control and manage UI related data of the entire app.
+ * Like, active state of Currency Menu or Toastr.
+ */
 const initialState = fromJS({
   currencyMenu: {
     isOpen: false,

@@ -193,7 +193,7 @@ class Header extends Component {
               className={inputClasses}
               type="text"
               ref={input => this.balanceInputEle = input}
-              onKeyPress={checkNumberWithDecimalPlaces}
+              onKeyDown={checkNumberWithDecimalPlaces}
               onChange={this.handleInputChange}
             />
             <p className="header__input__note">

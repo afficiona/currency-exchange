@@ -1,8 +1,8 @@
-Invites List - A Guest list app for the office party
+Currency Exchange pocket app
 ===========
 
-> An online guest list app built on React
-Link: https://afficiona21.github.io/invites/
+> An online exchange app built on React
+Link: https://afficiona21.github.io/currency-exchange/
 
 ## Installation and run
 You need node.js and npm/yarn to run the project locally.
@@ -24,13 +24,16 @@ OR yarn start
 ### Test
 ```sh
 yarn test
+OR npm test
 ```
 
 ### Production
 Generate the production build(in build folder of the project)
 ```sh
-yarn build
+yarn run deploy
 ```
+This command also deploys the project directly to github pages.
+
 Once build is generated, run any local server(Python, etc) inside the build directory, and open the localhost url on the browser.
 
 ```sh

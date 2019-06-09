@@ -4,6 +4,7 @@ import * as TYPES from './../constants/ActionTypes';
 import { normalizeExchangeRateData } from './../utils/normalizer';
 
 /**
+ * Store to manage currency related data.
  * The flag icons courtesy: https://www.flaticon.com/free-icons/india-flag
  */
 const initialState = fromJS({
@@ -88,7 +89,6 @@ export default function(state = initialState, action) {
 
       if (action.toFlip) {
         updatedCurrencyList = state.get('list').map(cur => {
-          // FIXME: Simplify this.
           if (cur.get('id') === sourceCurrency) {
             return cur.merge({
               isSource: false,
