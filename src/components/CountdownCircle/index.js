@@ -18,7 +18,7 @@ class Loader extends Component {
       this.updateCountdown = countdown => {
         this.setState({ countdown }, () => {
           if (!countdown) {
-            // this.props.countdownCb();
+            this.props.countdownCb();
           }
         });
       }
